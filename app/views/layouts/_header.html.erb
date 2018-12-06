@@ -1,12 +1,12 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-        <%= link_to "FELS", root_path, id: "logo" %>
-        <nav>
-            <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Home",   '#' %></li>
-                <li><%= link_to "Link",   '#' %></li>
-                <li><%= link_to "Log in", '#' %></li>
-            </ul>
-        </nav>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "FELS", root_path, class: "navbar-brand" %>
     </div>
-</header>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><%= link_to "Home",   '#' %></li>
+      <li><%= link_to "Link",   '#' %></li>
+      <li><%= link_to "Log in", '#' %></li>
+    </ul>
+  </div>
+</nav>
