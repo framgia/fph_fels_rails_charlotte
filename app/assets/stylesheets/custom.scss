@@ -24,6 +24,18 @@ textarea {
   resize: vertical;
 }
 
+.img-div{
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .center {
   text-align: center;
   h1 {
@@ -37,10 +49,12 @@ textarea {
 }
 
 /* header */
-.head_img {
-    margin-top: 5px;
-    width: 40px;
-    border-radius: 50%;
+.head-img {
+  overflow: hidden;
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 /* footer */
@@ -91,7 +105,11 @@ input, textarea, select, .uneditable-input {
   text-align: center;
 }
 
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+/* profile */
+.headboard {
+  background-color: #ffc6b3;
+}
+
+.prof-nav {
+  background-color: #ffd9b3;
 }

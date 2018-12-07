@@ -23,7 +23,11 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-    <%= f.file_field :avatar%>
+    <div class="img-div">
+        <%= image_tag current_user.avatar.url if current_user.avatar? %>
+    </div> 
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>   
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
