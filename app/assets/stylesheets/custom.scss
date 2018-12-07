@@ -24,6 +24,11 @@ textarea {
   resize: vertical;
 }
 
+img {
+  width: 150px;
+  border-radius: 50%;
+}
+
 .center {
   text-align: center;
   h1 {
@@ -91,7 +96,11 @@ input, textarea, select, .uneditable-input {
   text-align: center;
 }
 
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+/* profile */
+.headboard {
+  background-color: #ffc6b3;
+}
+
+.prof-nav {
+  background-color: #ffd9b3;
 }
