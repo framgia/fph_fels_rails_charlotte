@@ -31,6 +31,11 @@ textarea {
   }
 }
 
+.alert {
+  position: relative;
+  z-index: 1;
+}
+
 /* header */
 .head_img {
     margin-top: 5px;
@@ -45,7 +50,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #152332;
+  background-color: black;
   color: white;
   text-align: center;
 }
@@ -64,14 +69,13 @@ input, textarea, select, .uneditable-input {
   height: 100%;
   position: fixed;
   top: 0;
-  overflow-x: hidden;
   padding-top: 20px;
 }
 
 .left {
   left: 0;
   width: 30%;
-  background-color: #d6ffe9;
+  background-color: #d1d1d1;
 }
 
 .right {
