@@ -31,6 +31,13 @@ textarea {
   }
 }
 
+/* header */
+.head_img {
+    margin-top: 5px;
+    width: 40px;
+    border-radius: 50%;
+}
+
 /* footer */
 
 footer {
@@ -50,4 +57,37 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+/* Dashboard */
+.split {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  width: 30%;
+  background-color: #d6ffe9;
+}
+
+.right {
+  right: 0;
+  width: 69%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
 }
