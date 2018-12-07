@@ -24,9 +24,16 @@ textarea {
   resize: vertical;
 }
 
-img {
+.img-div{
+  overflow: hidden;
+  height: 150px;
   width: 150px;
   border-radius: 50%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 
 .center {
@@ -42,10 +49,12 @@ img {
 }
 
 /* header */
-.head_img {
-    margin-top: 5px;
-    width: 40px;
-    border-radius: 50%;
+.head-img {
+  overflow: hidden;
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 /* footer */
