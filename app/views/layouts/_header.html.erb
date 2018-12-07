@@ -3,10 +3,17 @@
         <div class="navbar-header">
             <%= link_to "FELS", root_path, class: "navbar-brand" %>
         </div>
+        <p class="navbar-text user"><%= current_user.name if logged_in? %></p>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><%= link_to "Home",   '#' %></li>
             <li><%= link_to "Link",   '#' %></li>
-            <li><%= link_to "Log in", '#' %></li>
+            <% if logged_in? %>
+                <li>
+                    <%= link_to "Log out", logout_path, method: :delete %> 
+                </li>
+            <% else %>
+                <li><%= link_to "Log in", login_path %></li>
+            <% end %>
         </ul>
     </div>
 </nav>
