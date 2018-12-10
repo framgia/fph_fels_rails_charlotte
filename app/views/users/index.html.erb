@@ -1,3 +1,5 @@
+<%= render 'shared/error_messages' %>
+
 <h1>All users</h1>
 
 <%= will_paginate %>
@@ -11,7 +13,7 @@
                 </div>
                 <p>
                     <%= user.name %> <span><%= link_to "follow", '#', class: "badge badge-secondary" %></span>
-                    <% if current_user.admin? %>
+                    <% if current_user.admin? %>    
                         <span> 
                             <%= 
                                 link_to (

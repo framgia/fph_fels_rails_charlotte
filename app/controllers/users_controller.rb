@@ -56,7 +56,8 @@ class UsersController < ApplicationController
 
     def admin_user
       unless current_user.admin?
-        flash.now[:danger] = "You are not authorized."
+        flash[:danger] = "You are not authorized."
+        redirect_to users_url
       end
     end
 
