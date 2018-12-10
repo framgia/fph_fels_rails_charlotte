@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def get_img(user)
+  def get_img(user)
     if user.avatar?
       image_tag user.avatar.url 
     else
