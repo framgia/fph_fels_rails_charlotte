@@ -29,6 +29,7 @@ textarea {
   height: 150px;
   width: 150px;
   border-radius: 50%;
+  margin: auto;
 }
 
 img {
@@ -46,6 +47,11 @@ img {
 .alert {
   position: relative;
   z-index: 1;
+}
+
+
+ul {
+  list-style-type: none;
 }
 
 /* header */
@@ -107,9 +113,13 @@ input, textarea, select, .uneditable-input {
 
 /* profile */
 .headboard {
-  background-color: #ffc6b3;
+  background-color: #d1d1d1;
 }
 
-.prof-nav {
-  background-color: #ffd9b3;
+/* user's list */
+.img-users-list{
+  overflow: hidden;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
 }
