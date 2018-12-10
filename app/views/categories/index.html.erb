@@ -1,0 +1,25 @@
+<h1>Categories</h1>
+<%= link_to "Add Category", new_category_url, class: 'btn btn-primary' %>
+
+<%= will_paginate %>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+                <td><%= category.title %></td>
+                <td><%= category.description %></td>
+                <td>FILL IN</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= will_paginate %>
