@@ -107,9 +107,13 @@ input, textarea, select, .uneditable-input {
 
 /* profile */
 .headboard {
-  background-color: #ffc6b3;
+  background-color: #d1d1d1;
 }
 
-.prof-nav {
-  background-color: #ffd9b3;
+/* user's list */
+.img-div{
+  overflow: hidden;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
 }

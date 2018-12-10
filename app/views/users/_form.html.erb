@@ -24,7 +24,7 @@
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
     <div class="img-div">
-        <%= image_tag current_user.avatar.url if current_user.avatar? %>
+        <%= image_tag @user.avatar.url if @user.avatar? %>
     </div> 
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>   

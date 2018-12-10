@@ -3,14 +3,16 @@
         <%= render 'shared/user_info'%>
         <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
     </div>
-    <div class="center">
-        <nav class="navbar prof-nav">
-            <ul class="nav navbar-nav">
-                <li><%= link_to "Learned Words", '#'%></li>
-                <li><%= link_to "Followers", '#'%></li>
-                <li><%= link_to "Following", '#'%></li>
-            </ul>
-        </nav>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <%= link_to "Learned Words", '#', class: "btn btn-default" %>
+        </div>
+        <div class="btn-group" role="group">
+            <%= link_to "Followers", '#', class: "btn btn-default" %>
+        </div>
+        <div class="btn-group" role="group">
+            <%= link_to "Following", '#', class: "btn btn-default" %>
+        </div>
     </div>
     <div class="center">
         User Activities
