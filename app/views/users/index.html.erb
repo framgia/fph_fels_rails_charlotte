@@ -5,8 +5,8 @@
 <ul class="users">
     <% @users.each do |user| %>
         <li>
-            <div class="img-div">
-                <%= image_tag user.avatar.url if user.avatar? %>
+            <div class="img-users-list">
+                <%= get_img(user) %>
             </div>
             <p><%= user.name %> <span><%= link_to "follow", '#', class: "badge badge-secondary" %></span></p>
         </li>

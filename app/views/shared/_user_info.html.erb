@@ -1,2 +1,4 @@
-<%= image_tag current_user.avatar.url, class: 'img-div' if current_user.avatar? %>
+<div class="img-div">
+    <%= get_img(current_user) %>
+</div>
 <h2><%= current_user.name %></h2>
