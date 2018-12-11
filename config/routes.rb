@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-	get '/new_category', to: 'categories#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -7,6 +6,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users do
     patch 'set_admin', on: :member
+  
   end
-  resources :categories
+  namespace :admin do
+    resources :categories
+  end
 end
