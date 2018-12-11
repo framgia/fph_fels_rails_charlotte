@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users do
     patch 'set_admin', on: :member
+  
+  end
+  namespace :admin do
+    resources :categories
   end
 end

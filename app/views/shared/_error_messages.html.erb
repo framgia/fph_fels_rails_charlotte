@@ -1,9 +1,9 @@
-<% if user.errors.any? %>
+<% if object.errors.any? %>
     <div class="alert alert-danger">
-        <div><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:
-        </div>    
+        <div><%= pluralize(object.errors.count, "error") %> prohibited this action:
+        </div>
         <ul>
-        <% user.errors.full_messages.each do |message| %>
+        <% object.errors.full_messages.each do |message| %>
             <li><%= message %></li>
         <% end %>
         </ul>
