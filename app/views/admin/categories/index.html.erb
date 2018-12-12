@@ -1,5 +1,5 @@
 <h1>Categories</h1>
-<%= link_to "Add Category", new_admin_category_url, class: 'btn btn-primary' %>
+<%= link_to "Add Category", new_admin_category_path, class: 'btn btn-primary' %>
 
 <%= will_paginate %>
 
@@ -8,15 +8,17 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Action</th>
+            <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
         <% @categories.each do |category| %>
             <tr>
-                <td><%= category.title %></td>
+                <td><%= link_to category.title, [:admin, category] %></td>
                 <td><%= category.description %></td>
-                <td>FILL IN</td>
+                <td><%= link_to "Add Word", new_admin_category_word_path(category), class: 'btn btn-primary' %></td>
+                <td><%= link_to "Edit", '#', class: 'btn btn-success' %></td>
+                <td><%= link_to "Delete", '#', class: 'btn btn-danger' %></td>
             </tr>
         <% end %>
     </tbody>

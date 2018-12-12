@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-6 centered">
+        <div class="jumbotron">
+            <div>
+                <h2><%= @category.title %></h2>            
+            </div>
+            <p><%= @category.description %></p>
+        </div>
+
+        <div>
+            <%= link_to "Add word", new_admin_category_word_path(@category), class: 'btn btn-primary float-right' %>
+        </div>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="center">Words</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @category.words.each do |word| %>
+                        <tr>
+                            <td>
+                                <%= link_to word.content, [:admin, @category, word] %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+
+        <%= link_to admin_categories_path, class: 'btn btn-primary' do %>
+            <i class="glyphicon glyphicon-chevron-left"></i> Back to categories
+        <% end %>
+    </div>
+</div>

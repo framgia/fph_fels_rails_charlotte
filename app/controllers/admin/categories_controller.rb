@@ -2,6 +2,10 @@ class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def index
     @categories = Category.paginate(page: params[:page])
   end
@@ -21,13 +25,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
-    def admin_user
-      unless current_user.admin?
-        flash[:danger] = "You are not authorized."
-        redirect_to root_url
-      end
-    end
-
     def cat_params
       params.require(:category).permit(:title, :description)
     end
