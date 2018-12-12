@@ -3,7 +3,7 @@
 
     <div class="row jumbotron">
         <div class="col-lg-5">
-            <%= f.label :word_content %>
+            <%= f.label :content, "Word Content" %>
             <%= f.text_field :content, class: 'form-control' %>
         </div>
 
@@ -11,9 +11,8 @@
             <%= f.label :choices %>
             <%= f.fields_for :choices do |choice| %>
                 <div>
-                    <%= choice.hidden_field :word_id, value: @word.id %>
                     <div class="c1"><%= choice.text_field :content, class: 'form-control' %></div>
-                    <div class="c2"><%= choice.check_box :correct, checked: false, class: 'form-control' %> </div>
+                    <div class="c2"><%= choice.check_box :correct, checked: false %> </div>
                 </div>
             <% end %>
         </div>

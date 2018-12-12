@@ -17,7 +17,7 @@ class Admin::WordsController < ApplicationController
     @word = @category.words.build(word_params)    
     if @word.save
       flash[:success] = "Word successfully created!"
-      redirect_to admin_categories_url
+      redirect_to [:admin, @category]
     else
       render 'new'
     end
@@ -25,6 +25,6 @@ class Admin::WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:content, :category_id, choices_attributes: [ :content, :word_id, :correct ])
+      params.require(:word).permit(:content, choices_attributes: [ :content, :correct ])
     end
 end

@@ -5,12 +5,18 @@ class Word < ApplicationRecord
   validates :content, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :choices, presence: true
   validate :at_least_one_is_checked
+  validate :unique_choices
 
   private
     def at_least_one_is_checked
-      size = choices.select {|a| a.correct == true}.count
-      if size == 0 || size > 1
+      if choices.select {|choice| choice.correct == true}.count != 1
         return errors.add :base, "Must have one correct choice"
+      end
+    end
+
+    def unique_choices
+      if choices.uniq { |choice| choice.content }.count < choices.length
+        return errors.add :base, "Choices must be unique"
       end
     end
 end

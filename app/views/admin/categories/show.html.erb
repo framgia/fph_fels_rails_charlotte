@@ -8,6 +8,10 @@
         </div>
 
         <div>
+            <%= link_to "Add word", new_admin_category_word_path(@category), class: 'btn btn-primary float-right' %>
+        </div>
+
+        <div>
             <table class="table">
                 <thead>
                     <tr>
@@ -18,12 +22,16 @@
                     <% @category.words.each do |word| %>
                         <tr>
                             <td>
-                                <%= link_to word.content, admin_category_word_url(word, category_id: @category.id) %>
+                                <%= link_to word.content, [:admin, @category, word] %>
                             </td>
                         </tr>
                     <% end %>
                 </tbody>
             </table>
         </div>
+
+        <%= link_to admin_categories_path, class: 'btn btn-primary' do %>
+            <i class="glyphicon glyphicon-chevron-left"></i> Back to categories
+        <% end %>
     </div>
 </div>
