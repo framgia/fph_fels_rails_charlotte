@@ -4,11 +4,15 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup',  to: 'users#new'
   root 'static_pages#home'
+  
   resources :users do
     patch 'set_admin', on: :member
-  
   end
+  
   namespace :admin do
-    resources :categories
+    resources :categories do
+      resources :words
+    end
+    resources :choices
   end
 end

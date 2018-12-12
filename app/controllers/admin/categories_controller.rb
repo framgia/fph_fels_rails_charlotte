@@ -2,6 +2,10 @@ class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def index
     @categories = Category.paginate(page: params[:page])
   end

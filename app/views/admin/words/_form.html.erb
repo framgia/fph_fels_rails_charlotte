@@ -1,0 +1,27 @@
+<%= form_for([:admin, @category, @word]) do |f| %>
+    <%= render 'shared/error_messages', object: @word %>
+
+    <div class="row jumbotron">
+        <div class="col-lg-5">
+            <%= f.label :word_content %>
+            <%= f.text_field :content, class: 'form-control' %>
+        </div>
+
+        <div class="col-lg-5 col-md-offset-2">
+            <%= f.label :choices %>
+            <%= f.fields_for :choices do |choice| %>
+                <div>
+                    <%= choice.hidden_field :word_id, value: @word.id %>
+                    <div class="c1"><%= choice.text_field :content, class: 'form-control' %></div>
+                    <div class="c2"><%= choice.check_box :correct, checked: false, class: 'form-control' %> </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+        </div>
+    </div>
+<% end %>
