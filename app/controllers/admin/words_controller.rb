@@ -1,4 +1,11 @@
 class Admin::WordsController < ApplicationController
+  before_action :admin_user
+
+  def show
+    @word = Word.find(params[:id])
+    @category = Category.find_by_id(params[:category_id])
+  end
+
   def new
     @category = Category.find_by_id(params[:category_id])
     @word = Word.new

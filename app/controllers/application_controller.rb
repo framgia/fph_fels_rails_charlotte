@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
         redirect_to root_url
       end
     end
+
+    def admin_user
+      unless current_user.admin?
+        flash[:danger] = "You are not authorized."
+        redirect_to root_url
+      end
+    end
 end

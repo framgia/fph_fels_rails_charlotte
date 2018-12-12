@@ -25,13 +25,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
-    def admin_user
-      unless current_user.admin?
-        flash[:danger] = "You are not authorized."
-        redirect_to root_url
-      end
-    end
-
     def cat_params
       params.require(:category).permit(:title, :description)
     end

@@ -18,7 +18,7 @@
                     <% @category.words.each do |word| %>
                         <tr>
                             <td>
-                                <%= word.content %>
+                                <%= link_to word.content, admin_category_word_url(word, category_id: @category.id) %>
                             </td>
                         </tr>
                     <% end %>
