@@ -12,7 +12,7 @@
             <%= f.fields_for :choices do |choice| %>
                 <div>
                     <div class="c1"><%= choice.text_field :content, class: 'form-control' %></div>
-                    <div class="c2"><%= choice.check_box :correct, checked: false %> </div>
+                    <div class="c2"><%= choice.check_box :correct %> </div>
                 </div>
             <% end %>
         </div>
