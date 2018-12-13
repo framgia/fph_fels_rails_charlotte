@@ -18,7 +18,7 @@
                 <td><%= category.description %></td>
                 <td><%= link_to "Add Word", new_admin_category_word_path(category), class: 'btn btn-primary' %></td>
                 <td><%= link_to "Edit", edit_admin_category_path(category) , class: 'btn btn-success' %></td>
-                <td><%= link_to "Delete", '#', class: 'btn btn-danger' %></td>
+                <td><%= link_to "Delete", [:admin, category], method: :delete, data: {confirm: "Are you sure you want to delete this category?"},class: 'btn btn-danger' %></td>
             </tr>
         <% end %>
     </tbody>
