@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 centered">
+    <div class="col-md-6 col-lg-offset-3 text-center">
         <table class="table">
             <thead>
                 <tr>
@@ -25,5 +25,7 @@
         <%= link_to [:admin, @category], class: 'btn btn-primary' do %>
             <i class="glyphicon glyphicon-chevron-left"></i> Back to category
         <% end %>
+
+        <%= link_to "Edit Word", edit_admin_category_word_path(@category, @word), class: 'btn btn-primary' %>
     </div>
 </div>
