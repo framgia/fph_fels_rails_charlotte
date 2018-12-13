@@ -24,6 +24,20 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(cat_params)
+      flash[:success] = "Category has been updated"
+      redirect_to admin_category_url
+    else
+      render 'edit'
+    end
+  end
+
   private
     def cat_params
       params.require(:category).permit(:title, :description)

@@ -17,7 +17,7 @@
                 <td><%= link_to category.title, [:admin, category] %></td>
                 <td><%= category.description %></td>
                 <td><%= link_to "Add Word", new_admin_category_word_path(category), class: 'btn btn-primary' %></td>
-                <td><%= link_to "Edit", '#', class: 'btn btn-success' %></td>
+                <td><%= link_to "Edit", edit_admin_category_path(category) , class: 'btn btn-success' %></td>
                 <td><%= link_to "Delete", '#', class: 'btn btn-danger' %></td>
             </tr>
         <% end %>
