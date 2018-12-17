@@ -1,9 +1,9 @@
 <%= form_for([@lesson, @answer]) do |f| %>
    <%= render 'shared/error_messages', object: @answer %>
 
-   <div class="row jumbotron">
+    <div class="row jumbotron">
         <h2>
-            <%= @lesson.category.title %> <span class="float-right"><%= @progress %> of <%= @lesson.category.words.length %></span>
+            <%= @lesson.category.title %> <span class="float-right"><%= @progress.to_s + " of " + @lesson.category.words.length.to_s %></span>
         </h2>
 
         <div class="col-lg-5">

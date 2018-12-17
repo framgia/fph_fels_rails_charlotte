@@ -1,1 +1,38 @@
-RESULTS!
+<div class="row jumbotron">
+    <h2>
+        <strong><%= @lesson.category.title %></strong>
+        <span class="float-right">
+            <strong>Result : </strong><%= @result.to_s + " of " + @lesson.category.words.length.to_s %>
+        </span>
+
+    </h2>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="1"></th>
+                    <th>Word</th>
+                    <th>User's Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @lesson.answers.each do |answer| %>
+                    <tr>
+                        <td>
+                            <% if answer.choice.correct? %>
+                                <h2 class="glyphicon glyphicon-ok-circle"></h2>
+                            <% else %>
+                                <h2 class="glyphicon glyphicon-remove-circle"></h2>
+                            <% end %>
+                        </td>
+                        <td><h4><%= answer.word.content %></h4></td>
+                        <td><h4><%= answer.choice.content %></h4></td>
+                        <td><h4><%= answer.word.choices.where(correct: true).first.content %></h4></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
