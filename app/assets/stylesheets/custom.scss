@@ -126,15 +126,20 @@ input, textarea, select, .uneditable-input {
 
 /* categories */
 .c1 {
-  display:inline-block;
+  display: inline-block;
   width: 80%;
 }
 
 .c2 {
-  display:inline-block;
+  display: inline-block;
   width: 18%;
 }
 
 .float-right {
-  float:right;
+  float: right;
+}
+
+/* lessons */
+input[type="radio"]{
+  visibility:hidden;
 }

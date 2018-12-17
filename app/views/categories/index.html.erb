@@ -10,7 +10,7 @@
                 <p><%= category.description %></p>
             </div>
             <div class="c2">
-                <%= link_to "Start", '#', class: 'btn btn-primary float-right' %>
+                <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
             </div>
         </li>
     <% end %>
