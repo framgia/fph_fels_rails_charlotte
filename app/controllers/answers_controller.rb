@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new
 
     @lesson.category.words.each do |word|
-      if !@lesson.answers.where(word: word).exists?
+      unless @lesson.answers.where(word: word).exists?
         @word = word
         @progress = @lesson.answers.length + 1
         break
