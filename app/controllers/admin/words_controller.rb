@@ -14,7 +14,7 @@ class Admin::WordsController < ApplicationController
 
   def create
     @category = Category.find_by_id(params[:category_id])
-    @word = @category.words.build(word_params)    
+    @word = @category.words.build(word_params)
     if @word.save
       flash[:success] = "Word successfully created!"
       redirect_to [:admin, @category]

@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get '/signup',  to: 'users#new'
   root 'static_pages#home'
 
+  resources :lessons do
+    resources :answers
+  end
+
   resources :categories
+  
   resources :users do
     patch 'set_admin', on: :member
   end
