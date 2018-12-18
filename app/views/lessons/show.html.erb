@@ -20,11 +20,11 @@
             <tbody>
                 <% @lesson.answers.each do |answer| %>
                     <tr>
-                        <td>
+                        <td class="correct">
                             <% if answer.choice.correct? %>
-                                <h2 class="glyphicon glyphicon-ok-circle"></h2>
+                                <i class="glyphicon glyphicon-ok-circle"></i>
                             <% else %>
-                                <h2 class="glyphicon glyphicon-remove-circle"></h2>
+                                <i class="glyphicon glyphicon-remove-circle"></i>
                             <% end %>
                         </td>
                         <td><h4><%= answer.word.content %></h4></td>
@@ -36,3 +36,7 @@
         </table>
     </div>
 </div>
+
+<%= link_to categories_path, class: 'btn btn-primary' do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to categories
+<% end %>

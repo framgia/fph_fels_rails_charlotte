@@ -13,6 +13,6 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find_by_id(params[:id])
-    @result = @lesson.answers.joins(:choice).where(choices: {correct: true}).count
+    @result = @lesson.correct_answers.count
   end
 end
