@@ -1,19 +1,6 @@
 <div class="row"> 
-    <div class="center jumbotron headboard">
-        <%= render 'shared/user_info'%>
-        <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
-    </div>
-    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <%= link_to "Learned Words", '#', class: "btn btn-default" %>
-        </div>
-        <div class="btn-group" role="group">
-            <%= link_to "Followers", '#', class: "btn btn-default" %>
-        </div>
-        <div class="btn-group" role="group">
-            <%= link_to "Following", '#', class: "btn btn-default" %>
-        </div>
-    </div>
+    <%= render 'shared/headboard' %>
+    <%= render 'shared/profile_nav' %>
     <div class="center">
         User Activities
     </div>
