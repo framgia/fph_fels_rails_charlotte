@@ -1,4 +1,8 @@
 class LessonsController < ApplicationController
+  def index
+    @lessons = current_user.lessons.paginate(page: params[:page], per_page: 3)
+  end
+
   def create
     @category = Category.find_by_id(params[:category_id])
     @lesson = Lesson.new(category_id: @category.id, user_id: current_user.id)
