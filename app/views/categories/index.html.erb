@@ -10,7 +10,12 @@
                 <p><%= category.description %></p>
             </div>
             <div class="c2">
-                <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
+                <% @lesson = Lesson.find_by(category_id: category.id, user_id: current_user.id) %>
+                <% if @lesson.blank? %>
+                    <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
+                <% else %>
+                    <%= link_to "Result", @lesson, class: 'btn btn-default float-right' %>
+                <% end %>
             </div>
         </li>
     <% end %>

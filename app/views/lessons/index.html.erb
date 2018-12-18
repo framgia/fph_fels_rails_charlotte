@@ -2,42 +2,41 @@
     <%= render 'shared/headboard' %>
     <%= render 'shared/profile_nav' %>
     <div>
-        <h1 class="center">Lessons Learned</h1>
+        <h1 class="center">Words Learned</h1>
 
         <%= will_paginate %>
-
-        <ul class="list-group">
-            <% @lessons.each do |lesson| %>
-                <li class="list-group-item">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th colspan="1"></th>
-                                <th>Word</th>
-                                <th>User's Answer</th>
-                                <th>Correct Answer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% lesson.answers.each do |answer| %>
-                                <tr>
-                                    <td class="correct">
-                                        <% if answer.choice.correct? %>
-                                            <i class="glyphicon glyphicon-ok-circle"></i>
-                                        <% else %>
-                                            <i class="glyphicon glyphicon-remove-circle"></i>
-                                        <% end %>
-                                    </td>
-                                    <td><h4><%= answer.word.content %></h4></td>
-                                    <td><h4><%= answer.choice.content %></h4></td>
-                                    <td><h4><%= answer.word.choices.where(correct: true).first.content %></h4></td>
-                                </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-                </li>
-            <% end %>
-        </ul>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="1"></th>
+                    <th>Word</th>
+                    <th>User's Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @lessons.each do |lesson| %>
+                    <tr>
+                        <th class="center info" colspan="4"><h4><strong><%= lesson.category.title %></strong></h4></th>
+                    </tr>
+                    <% lesson.answers.each do |answer| %>
+                        <tr>
+                            <td class="correct">
+                                <% if answer.choice.correct? %>
+                                    <i class="glyphicon glyphicon-ok-circle"></i>
+                                <% else %>
+                                    <i class="glyphicon glyphicon-remove-circle"></i>
+                                <% end %>
+                            </td>
+                            <td><h4><%= answer.word.content %></h4></td>
+                            <td><h4><%= answer.choice.content %></h4></td>
+                            <td><h4><%= answer.word.choices.where(correct: true).first.content %></h4></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            </tbody>
+        </table>
 
         <%= will_paginate %>
     </div>
