@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   
   resources :users do
     patch 'set_admin', on: :member
+    member do
+      get :following, :followers
+    end
   end
 
   namespace :admin do
@@ -21,4 +24,6 @@ Rails.application.routes.draw do
     end
     resources :choices
   end
+
+  resources :relationships
 end
