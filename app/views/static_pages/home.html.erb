@@ -6,9 +6,9 @@
                     <%= get_img(current_user) %>
                 </div>
                 <h2><%= current_user.name %></h2>
-                <%= link_to "Following "+current_user.following.count.to_s, following_user_path(current_user) %>
-                <%= link_to "Followers "+current_user.followers.count.to_s, followers_user_path(current_user) %>
-                <p><%= link_to "Words Learned "+total(current_user).to_s, lessons_path(id: current_user.id) %></p>
+                <%= link_to "Following #{current_user.following.count}", following_user_path(current_user) %>
+                <%= link_to "Followers #{current_user.followers.count}", followers_user_path(current_user) %>
+                <p><%= link_to "Words Learned #{total(current_user)}", lessons_path(id: current_user.id) %></p>
             </div>
         </div>
         <div class="split right"> 
