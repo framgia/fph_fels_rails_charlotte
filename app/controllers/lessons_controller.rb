@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = current_user.lessons.paginate(page: params[:page], per_page: 3)
+    @user = User.find(params[:id])
+    @lessons = @user.lessons.paginate(page: params[:page], per_page: 3)
   end
 
   def create
@@ -17,7 +18,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find_by_id(params[:id])
+    @lesson = Lesson.find(params[:id])
     @result = @lesson.correct_answers.count
   end
 end

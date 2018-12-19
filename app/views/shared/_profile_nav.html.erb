@@ -1,11 +1,11 @@
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
     <div class="btn-group" role="group">
-        <%= link_to "Words Learned", lessons_path , class: "btn btn-default" %>
+        <%= link_to "Words Learned #{total(@user)}", lessons_path(id: @user.id) , class: "btn btn-default" %>
     </div>
     <div class="btn-group" role="group">
-        <%= link_to "Followers", '#', class: "btn btn-default" %>
+        <%= link_to "Followers #{@user.followers.count}", followers_user_path(@user), class: "btn btn-default" %>
     </div>
     <div class="btn-group" role="group">
-        <%= link_to "Following", '#', class: "btn btn-default" %>
+        <%= link_to "Following #{@user.following.count}", following_user_path(@user), class: "btn btn-default" %>
     </div>
 </div>

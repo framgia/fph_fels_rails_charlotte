@@ -1,4 +1,13 @@
 <div class="center jumbotron headboard">
-    <%= render 'shared/user_info'%>
-    <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
+    <div class="img-div">
+        <%= get_img(@user) %>
+    </div>
+    <h2><%= @user.name %></h2>
+    <% if current_user?(@user) %>
+        <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
+    <% else %>
+        <div class="col-md-2 col-md-offset-5">
+            <%= render 'users/follow_form' %>
+        </div>
+    <% end %>
 </div>

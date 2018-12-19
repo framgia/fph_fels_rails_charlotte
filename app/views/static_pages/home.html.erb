@@ -2,11 +2,16 @@
     <% if logged_in? %>
         <div class="split left">
             <div class="centered">
-                <%= render 'shared/user_info'%>
-                <p>Learned Words Info</p>
+                <div class="img-div">
+                    <%= get_img(current_user) %>
+                </div>
+                <h2><%= current_user.name %></h2>
+                <%= link_to "Following #{current_user.following.count}", following_user_path(current_user) %>
+                <%= link_to "Followers #{current_user.followers.count}", followers_user_path(current_user) %>
+                <p><%= link_to "Words Learned #{total(current_user)}", lessons_path(id: current_user.id) %></p>
             </div>
         </div>
-        <div class="split right">
+        <div class="split right"> 
             <div class="centered">
                 This is the Newsfeed
             </div>
