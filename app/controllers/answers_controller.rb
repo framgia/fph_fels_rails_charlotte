@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
     @lesson = Lesson.find_by_id(params[:lesson_id])
     @answer = @lesson.answers.build(answer_params)
     @answer.save
-
+    
     redirect_to new_lesson_answer_url(@lesson)
   end
 

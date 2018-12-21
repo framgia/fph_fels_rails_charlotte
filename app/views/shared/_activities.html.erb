@@ -1,0 +1,19 @@
+<h1>Activities</h1>
+<% unless @activities.empty? %>
+    <%= will_paginate @activities %>
+
+    <ul class="list-group">
+        <% @activities.each do |activity| %>
+            <li class="list-group-item">
+                <p class="float-right"><%= activity.action.created_at.to_date %></p>
+                <% if activity.action_type.eql? "Relationship" %>
+                    <p><%= @user.name %> followed <%= link_to activity.action.followed.name, activity.action.followed, class: 'label label-primary' %></p>
+                <% else %>
+                    <p><%= "#{@user.name} learned #{pluralize(activity.action.answers.count, 'word')} in " %> <%= link_to activity.action.category.title, [:admin, activity.action.category], class: 'label label-warning' %></p>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+
+    <%= will_paginate @activities %>
+<% end %>
