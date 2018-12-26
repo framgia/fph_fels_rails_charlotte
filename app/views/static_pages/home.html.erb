@@ -18,7 +18,7 @@
                 <ul class="list-group">
                     <% @activities.each do |activity| %>
                         <li class="list-group-item">
-                            <p class="float-right"><%= activity.action.created_at.to_date %></p>
+                            <p class="float-right"><%= distance_of_time_in_words(Time.now, activity.action.created_at, include_seconds: true) %> ago</p>
                             <% if activity.action.instance_of?(Relationship) %>
                                 <p><%= activity.user.name %> followed <%= link_to activity.action.followed.name, activity.action.followed, class: 'label label-primary' %></p>
                             <% else %>
