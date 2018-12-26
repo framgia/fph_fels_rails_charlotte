@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% @lessons.each do |lesson| %>
+                <% @lessons.where.not(result: nil).each do |lesson| %>
                     <tr>
                         <th class="center info" colspan="4"><h4><strong><%= lesson.category.title %></strong></h4></th>
                     </tr>

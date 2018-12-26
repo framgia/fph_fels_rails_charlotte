@@ -19,11 +19,11 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def follow(user)
-    following << user
+    active_relationships.create(followed: user)
   end
 
   def unfollow(user)
-    following.delete(user)
+    active_relationships.destroy(followed: user)
   end
 
   def following?(user)

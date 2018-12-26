@@ -1,7 +1,7 @@
 <div class="row"> 
     <%= render 'shared/headboard', user: @user %>
     <%= render 'shared/profile_nav', user: @user %>
-    <div class="center">
-        User Activities
+    <div>
+        <%= render 'shared/activities', user: @user %>
     </div>
 </div>

@@ -12,6 +12,8 @@ class AnswersController < ApplicationController
     end
 
     if @word.nil?
+      @lesson.update_attribute(:result, @lesson.correct_answers.count)
+      generate_activity
       redirect_to @lesson
     end
   end
@@ -27,5 +29,9 @@ class AnswersController < ApplicationController
   private
     def answer_params
       params.require(:answer).permit(:word_id, :choice_id)
+    end
+
+    def generate_activity
+      @lesson.create_activity(user: @lesson.user)
     end
 end

@@ -1,0 +1,19 @@
+<h1>Activities</h1>
+<% unless @activities.empty? %>
+    <%= will_paginate @activities %>
+
+    <ul class="list-group">
+        <% @activities.each do |activity| %>
+            <li class="list-group-item">
+                <p class="float-right"><%= distance_of_time_in_words(Time.now, activity.action.created_at, include_seconds: true) %> ago</p>
+                <% if activity.action.instance_of?(Relationship) %>
+                    <p><%= @user.name %> followed <%= link_to activity.action.followed.name, activity.action.followed, class: 'label label-primary' %></p>
+                <% else %>
+                    <p><%= "#{@user.name} learned #{pluralize(activity.action.answers.count, 'word')} in " %> <%= link_to activity.action.category.title, [:admin, activity.action.category], class: 'label label-warning' %></p>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+
+    <%= will_paginate @activities %>
+<% end %>
