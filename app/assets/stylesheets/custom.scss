@@ -87,9 +87,10 @@ input, textarea, select, .uneditable-input {
 /* Dashboard */
 .split {
   height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
-  padding-top: 20px;
+  overflow-x: hidden;
+  padding-top: 60px;
 }
 
 .left {

@@ -18,6 +18,14 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
   mount_uploader :avatar, AvatarUploader
 
+  def follow(user)
+    active_relationships.create(followed: user)
+  end
+
+  def unfollow(user)
+    active_relationships.destroy(followed: user)
+  end
+
   def following?(user)
     following.include?(user)
   end
