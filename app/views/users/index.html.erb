@@ -3,37 +3,46 @@
 
 <%= will_paginate %>
 
-<ul class="users list-group">
-    <% @users.each do |user| %>
-        <% unless current_user?(user) %>
-            <%= link_to user do %>
-                <li class="list-group-item">
-                    <div class="img-users-list">
-                        <%= get_img(user) %>
-                    </div>
-                    <p>
-                        <%= user.name %>
-                        <% if current_user.admin? %>
-                            <span> 
-                                <%= 
+<table class="table">
+    <thead>
+        <colgroup>
+            <col class="col-md-10">
+            <col class="col-md-1">
+            <col class="col-md-1">
+        </colgroup>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+            <% unless current_user?(user) %>
+                <%= link_to user do %>
+                    <tr>
+                        <td>
+                            <div class="img-users-list">
+                                <%= get_img(user) %>
+                            </div>
+                            <p><%= user.name %></p>
+                        </td>
+                        <td>
+                            <% if current_user.admin? %>
+                                <%=
                                     link_to (
                                         if (user.admin?)
                                             "remove admin"
                                         else
                                             "add as admin"
-                                        end 
-                                    ), set_admin_user_path(user) , method: :patch, class: "label label-primary"
+                                        end
+                                    ), set_admin_user_path(user) , method: :patch, class: "btn btn-primary"
                                 %>
-                            </span>
-                            <span>
-                                <%= render 'follow_form', user: user %>
-                            </span>
-                        <% end %>
-                    </p>
-                </li>
+                            <% end %>
+                        </td>
+                        <td>
+                            <%= render 'follow_form', user: user %>
+                        </td>
+                    </tr>
+                <% end %>
             <% end %>
         <% end %>
-    <% end %>
-</ul>
+    </tbody>
+</table>
 
 <%= will_paginate %>

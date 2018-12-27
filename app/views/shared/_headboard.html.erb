@@ -6,8 +6,6 @@
     <% if current_user?(@user) %>
         <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary" %>
     <% else %>
-        <div class="col-md-2 col-md-offset-5">
-            <%= render 'users/follow_form' %>
-        </div>
+        <%= render 'users/follow_form', user: @user %>
     <% end %>
 </div>
