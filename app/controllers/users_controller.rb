@@ -40,10 +40,15 @@ class UsersController < ApplicationController
 
   def set_admin
     @user = User.find(params[:id])
-    if @user.admin?
-      @user.update_attribute(:admin, 0)
+
+    unless @user.super_admin
+      if @user.admin?
+        @user.update_attribute(:admin, 0)
+      else
+        @user.update_attribute(:admin, 1)
+      end
     else
-      @user.update_attribute(:admin, 1)
+      flash[:danger] = "You are not authorized. User is a Super Admin."
     end
 
     redirect_to users_url
