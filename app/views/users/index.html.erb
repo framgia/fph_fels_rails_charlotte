@@ -14,32 +14,30 @@
     <tbody>
         <% @users.each do |user| %>
             <% unless current_user?(user) %>
-                <%= link_to user do %>
-                    <tr>
-                        <td>
-                            <div class="img-users-list">
-                                <%= get_img(user) %>
-                            </div>
-                            <p><%= user.name %></p>
-                        </td>
-                        <td>
-                            <% if current_user.admin? %>
-                                <%=
-                                    link_to (
-                                        if (user.admin?)
-                                            "remove admin"
-                                        else
-                                            "add as admin"
-                                        end
-                                    ), set_admin_user_path(user) , method: :patch, class: "btn btn-primary"
-                                %>
-                            <% end %>
-                        </td>
-                        <td>
-                            <%= render 'follow_form', user: user %>
-                        </td>
-                    </tr>
-                <% end %>
+                <tr>
+                    <td>
+                        <div class="img-users-list">
+                            <%= get_img(user) %>
+                        </div>
+                        <p><%= link_to user.name, user %></p>
+                    </td>
+                    <td>
+                        <% if current_user.admin? %>
+                            <%=
+                                link_to (
+                                    if (user.admin?)
+                                        "remove admin"
+                                    else
+                                        "add as admin"
+                                    end
+                                ), set_admin_user_path(user) , method: :patch, class: "btn btn-primary"
+                            %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= render 'follow_form', user: user %>
+                    </td>
+                </tr>
             <% end %>
         <% end %>
     </tbody>
