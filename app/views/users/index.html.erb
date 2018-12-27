@@ -22,8 +22,11 @@
                                         else
                                             "add as admin"
                                         end 
-                                    ), set_admin_user_path(user) , method: :patch, class: "badge badge-info" 
+                                    ), set_admin_user_path(user) , method: :patch, class: "label label-primary"
                                 %>
+                            </span>
+                            <span>
+                                <%= render 'follow_form', user: user %>
                             </span>
                         <% end %>
                     </p>
