@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
 
   def restart
     @lesson = Lesson.find(params[:id])
-    Answer.where(lesson: @lesson).destroy_all
+    @lesson.answers.destroy_all
 
     redirect_to new_lesson_answer_url(@lesson)
   end
