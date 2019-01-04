@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
 
   def create
     @category = Category.find_by_id(params[:category_id])
-    @lesson = Lesson.new(category: @category, user: current_user)
+    @lesson = @category.lessons.build(user: current_user)
 
     if @category.words.any?
       @lesson.save
