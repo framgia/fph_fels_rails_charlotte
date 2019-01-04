@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :lessons do
+    member do
+      get :restart
+    end
     resources :answers
   end
 

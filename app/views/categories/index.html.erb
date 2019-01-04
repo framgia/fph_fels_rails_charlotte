@@ -10,9 +10,18 @@
                 <p><%= category.description %></p>
             </div>
             <div class="c2">
-                <% @lessons = Lesson.where(category_id: category.id, user_id: current_user.id) %>
-                <% if @lessons.any? && @lesson = @lessons.where.not(result: nil).first %>
-                    <%= link_to "Result", @lesson, class: 'btn btn-default float-right' %>
+                <% if @lesson = current_user.lessons.find_by(category: category) %>
+                    <% if @lesson.result.nil? %>
+                        <div class="dropdown float-right">
+                            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unfinished <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><%= link_to "Continue", new_lesson_answer_path(@lesson) %></li>
+                                <li class="dropdown-item"><%= link_to "Restart", restart_lesson_path(@lesson) %></li>
+                            </ul>
+                        </div>
+                    <% else %>
+                        <%= link_to "Result", @lesson, class: 'btn btn-warning float-right' %>
+                    <% end %>
                 <% else %>
                     <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
                 <% end %>
