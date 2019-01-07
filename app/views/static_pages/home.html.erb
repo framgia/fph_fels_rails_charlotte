@@ -27,8 +27,11 @@
                         </li>
                     <% end %>
                 </ul>
-
                 <%= will_paginate @activities %>
+            <% else %>
+                <div class="centered jumbotron">
+                    <h2>Nothing to show</h2>
+                </div>
             <% end %>
         </div>
     <% else %>

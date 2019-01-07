@@ -1,40 +1,46 @@
 <h1>
     Categories 
     <span class="btn-group float-right">
-        <%= link_to "All", categories_path, class: 'btn btn-default' %>
-        <%= link_to "Learned", categories_path(filter: "learned"), class: 'btn btn-default' %>
-        <%= link_to "Unlearned", categories_path(filter: "unlearned"), class: 'btn btn-default' %>
+        <%= link_to "All", categories_path, class: current_page?("all") %>
+        <%= link_to "Learned", categories_path(filter: "learned"), class: current_page?("learned") %>
+        <%= link_to "Unlearned", categories_path(filter: "unlearned"), class: current_page?("unlearned") %>
     </span>
 </h1>
 
-<%= will_paginate %>
+<% if @categories.empty? %>
+    <div class="centered jumbotron">
+        <h1>Nothing to show</h1>
+    </div>
+<% else %>
+    <%= will_paginate %>
 
-<ul class="list-group">
-    <% @categories.each do |category| %>
-        <li class="list-group-item">
-            <div class="c1">
-                <h3><%= category.title %></h3>
-                <p><%= category.description %></p>
-            </div>
-            <div class="c2">
-                <% if @lesson = current_user.lessons.find_by(category: category) %>
-                    <% if @lesson.result.nil? %>
-                        <div class="dropdown float-right">
-                            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unfinished <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><%= link_to "Continue", new_lesson_answer_path(@lesson) %></li>
-                                <li class="dropdown-item"><%= link_to "Restart", restart_lesson_path(@lesson) %></li>
-                            </ul>
-                        </div>
+    <ul class="list-group">
+        <% @categories.each do |category| %>
+            <li class="list-group-item">
+                <div class="c1">
+                    <h3><%= category.title %></h3>
+                    <p><%= category.description %></p>
+                </div>
+                <div class="c2">
+                    <% if @lesson = current_user.lessons.find_by(category: category) %>
+                        <% if @lesson.result.nil? %>
+                            <div class="dropdown float-right">
+                                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Unfinished <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item"><%= link_to "Continue", new_lesson_answer_path(@lesson) %></li>
+                                    <li class="dropdown-item"><%= link_to "Restart", restart_lesson_path(@lesson) %></li>
+                                </ul>
+                            </div>
+                        <% else %>
+                            <%= link_to "Result", @lesson, class: 'btn btn-warning float-right' %>
+                        <% end %>
                     <% else %>
-                        <%= link_to "Result", @lesson, class: 'btn btn-warning float-right' %>
+                        <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
                     <% end %>
-                <% else %>
-                    <%= link_to "Start", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary float-right' %>
-                <% end %>
-            </div>
-        </li>
-    <% end %>
-</ul>
+                </div>
+            </li>
+        <% end %>
+    </ul>
 
-<%= will_paginate %>
+    <%= will_paginate %>
+<% end %>
