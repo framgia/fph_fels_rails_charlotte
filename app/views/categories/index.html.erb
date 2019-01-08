@@ -1,15 +1,15 @@
 <h1>
     Categories 
     <span class="btn-group float-right">
-        <%= link_to "All", categories_path, class: current_page?("all") %>
-        <%= link_to "Learned", categories_path(filter: "learned"), class: current_page?("learned") %>
-        <%= link_to "Unlearned", categories_path(filter: "unlearned"), class: current_page?("unlearned") %>
+        <%= link_to "All", categories_path, class: "btn btn-default #{current_page?("all")}" %>
+        <%= link_to "Learned", categories_path(filter: "learned"), class: "btn btn-default #{current_page?("learned")}" %>
+        <%= link_to "Unlearned", categories_path(filter: "unlearned"), class: "btn btn-default #{current_page?("unlearned")}" %>
     </span>
 </h1>
 
 <% if @categories.empty? %>
-    <div class="centered jumbotron">
-        <h1>Nothing to show</h1>
+    <div class="centered">
+        <p class="empty">Nothing to show</p>
     </div>
 <% else %>
     <%= will_paginate %>

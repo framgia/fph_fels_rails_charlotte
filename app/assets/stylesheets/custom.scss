@@ -140,6 +140,11 @@ input, textarea, select, .uneditable-input {
   float: right;
 }
 
+.empty {
+  color: red;
+  font-size: 40px;
+}
+
 /* lessons */
 input[type="radio"]{
   visibility:hidden;
